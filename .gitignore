@@ -32,3 +32,7 @@ yarn-error.log*
 coverage/
 *.tsbuildinfo
 next-env.d.ts
+
+# Vercel log exports
+firstchoice-log-export-*.json
+*-log-export-*.json
