@@ -69,7 +69,10 @@ http://localhost:3000 reflects the changes within ~60s (ISR).
 
 Create three Vercel projects, each with **Root Directory** set to the matching folder:
 
-1. **backend** → root `backend/`. Add the backend env vars. Note its URL (e.g. `https://fc-api.vercel.app`).
+1. **backend** → **Root Directory = `backend`**, Framework Preset = **Other** (leave Build/Output
+   Command empty — `backend/vercel.json` builds the Express app as a single serverless function via
+   `@vercel/node`). Add the backend env vars (see step 3). Note its URL (e.g. `https://fc-api.vercel.app`).
+   Verify it deployed by opening `https://<backend-url>/api/health`.
 2. **users** → root `users/`. Set `NEXT_PUBLIC_BACKEND_URL` to the backend URL and
    `NEXT_PUBLIC_SITE_URL` to the public site's own URL.
 3. **admin** → root `admin/`. Set `NEXT_PUBLIC_BACKEND_URL` to the backend URL + the Supabase vars.
