@@ -12,12 +12,14 @@ alter table public.site_settings
 alter table public.hero_settings
   alter column background_color set default '#7B1E2B';
 
--- Update the existing singleton rows to the new palette
+-- Update the existing singleton row to the new palette, but ONLY if it is still
+-- on the original red. This preserves any colours the admin has since tuned.
 update public.site_settings
   set primary_color = '#7B1E2B',
       secondary_color = '#FFFFFF',
       default_hero_color = '#7B1E2B'
-  where id = 1;
+  where id = 1
+    and primary_color = '#E10600';
 
 update public.hero_settings
   set background_color = '#7B1E2B'
